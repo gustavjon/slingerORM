@@ -6,6 +6,11 @@ compileJava {
     targetCompatibility = 1.6
 }
 
+dependencies {
+    testCompile 'org.mockito:mockito-all:1.9.5'
+    testCompile "junit:junit:4.10"
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {

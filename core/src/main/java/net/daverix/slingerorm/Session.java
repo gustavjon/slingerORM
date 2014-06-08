@@ -16,6 +16,7 @@
 package net.daverix.slingerorm;
 
 import net.daverix.slingerorm.exception.SessionException;
+import net.daverix.slingerorm.query.WhereStubbing;
 
 import java.util.Collection;
 
@@ -31,8 +32,12 @@ public interface Session {
     <T> void replace(T item) throws SessionException;
     <T> void delete(T item) throws SessionException;
 
+    @Deprecated
     <T> Collection<T> query(Class<T> entityClass, String selection, String[] selectionArgs, String orderBy) throws SessionException;
+    @Deprecated
     <T> T querySingle(Class<T> entityClass, String id) throws SessionException;
+
+    <T> WhereStubbing<T> query(Class<T> entityClass) throws SessionException;
 
     void close();
 }
